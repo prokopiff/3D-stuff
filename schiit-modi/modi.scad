@@ -34,6 +34,15 @@ module shell() {
   }
 }
 
+screw_thickness = 2;
+screw_d = 6;
+module screw() {
+  color("black")
+  translate([-screw_thickness, 0, 0])
+  rotate([0, 90, 0])
+    cylinder(h = screw_thickness, d = screw_d);
+}
+
 module body() {
   logo_width = 25;
   logo_to_left = 10;
@@ -71,6 +80,13 @@ module body() {
   rotate([0, 90, 0])
     roundedCube([switch_h, switch_w, fake_thickness], switch_w/2, true, true);
   
+  //screws
+  translate([0, -(15.8+screw_d/2), height-4-screw_d/2])
+    screw();
+  translate([0, -(44+screw_d/2), height-4.8-screw_d/2])
+    screw();
+  translate([0, -(61.4+screw_d/2), height-5.5-screw_d/2])
+    screw();
 }
 
 body();
