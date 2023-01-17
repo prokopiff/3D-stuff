@@ -12,7 +12,7 @@ catch_len = 8;
 thickness = 4.6;
 gap = 1;
 radius = 1.6;
-back = 12;
+back = 8.5;
 
 front = sqrt(keeb_width*keeb_width/2);
 bottom = front;

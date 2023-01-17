@@ -9,7 +9,7 @@ thickness = 4.6;
 gap = 1;
 bottom_gap = 3.5;
 radius = 1.6;
-back = 13;
+back = 10;
 front = 12;
 
 //top bend
