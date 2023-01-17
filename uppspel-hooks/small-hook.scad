@@ -6,10 +6,10 @@ $fa = 1;
 $fs = 0.15;
 
 thickness = 4.6;
-gap = 2;
-bottom_gap = 4;
+gap = 1;
+bottom_gap = 3.5;
 radius = 1.6;
-back = 8;
+back = 13;
 front = 12;
 
 //top bend
