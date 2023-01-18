@@ -7,7 +7,7 @@ $fs = 0.15;
 //update this for keyboards
 keeb_width = 110;
 
-catch_len = 8;
+catch_len = 16;
 
 thickness = 4.6;
 gap = 1;
@@ -53,6 +53,6 @@ rotate([0, 0, -45])
   roundedCube([keeb_width-thickness, thickness, thickness], radius, false, true);
 
 //catch
-translate([bottom+radius, -(front-thickness), 0])
+translate([bottom+thickness, -(front-catch_len/2), 0])
 rotate([0, 0, 45])
   roundedCube([catch_len, thickness, thickness], radius, false, true);
