@@ -128,3 +128,10 @@ translate([0, 0, -(height/2+t/2+slot_h/2)])
 
 }
 //shell();
+
+//use <dell_clip.scad>;
+//translate([0, 0, -23])
+//rotate([0, 90, 0]) {
+//  slot();
+//  bracket();
+//}
