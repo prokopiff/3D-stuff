@@ -21,6 +21,7 @@ module leg(pos = [0, 0, 0]) {
 
 module shell() {
   color("grey", 1.0)
+  translate([-length/2, width/2, -height/2])
   rotate([90, 0, 0])
   linear_extrude(width)
   hull() {
@@ -64,18 +65,18 @@ module body() {
   leg([length-leg_to_front-leg_d/2, -(width-leg_to_side-leg_d/2), -leg_h]);
     
   //logo
-  color("lightgrey", 1.0)
+  color("lightgrey")
   translate([length, -(width-logo_to_left), logo_to_bottom])
     cube([fake_thickness, logo_width, logo_height]);
     
   //led
-  color("white", 1.0)
+  color("white")
   translate([length+fake_thickness/2, -(led_to_right+led_d/2), led_to_bottom+led_d/2])
   rotate([0, 90, 0])
     cylinder(h = fake_thickness, d = led_d, center = true);
   
   //switch
-  color("silver", 1.0)
+  color("silver")
   translate([length+fake_thickness/2, -(switch_w/2+switch_to_right), switch_h/2+switch_to_bottom])
   rotate([0, 90, 0])
     roundedCube([switch_h, switch_w, fake_thickness], switch_w/2, true, true);
@@ -87,6 +88,43 @@ module body() {
     screw();
   translate([0, -(61.4+screw_d/2), height-5.5-screw_d/2])
     screw();
+    
+  toslink_h = 10;
+  toslink_w = 11;
+  color("black")
+  translate([-fake_thickness, -(width-58+toslink_w/2), 8])
+    cube([fake_thickness, toslink_w, toslink_h]);
 }
 
-body();
+
+t = 4;
+difference() {
+  intersection() {
+    resize([length+t, width+t, height+t])
+      shell();
+
+    cube([20, 150, 50], center = true);
+  }
+  shell();
+  translate([0,0,height/2])
+    cube([30, width-6, 6], center = true);
+}
+translate([0, width/2+t/2+0.8, height/2+t/2-0.8])
+  cube([20, 1.6, 1.6], center = true);
+translate([0, -(width/2+t/2+0.8), height/2+t/2-0.8])
+  cube([20, 1.6, 1.6], center = true);
+
+slot_w = 12;
+slot_h = 3;
+difference() {
+translate([0, 0, -(height/2+t/2+(slot_h+t/2)/2)])
+  cube([20, slot_w+t, slot_h+t/2], center = true);
+
+translate([0, 0, -(height/2+t/2+slot_h/2)])
+  cube([20, slot_w, slot_h], center = true);
+  
+translate([0, 0, -(height/2+t/2+slot_h/2)])
+  cube([20, slot_w-slot_h*2, slot_h+t], center = true);
+
+}
+//shell();
