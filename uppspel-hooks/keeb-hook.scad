@@ -1,7 +1,6 @@
 use <../mcad/2Dshapes.scad>;
 use <../mcad/boxes.scad>;
 
-
 $fa = 1;
 $fs = 0.15;
 
@@ -11,9 +10,9 @@ keeb_width = 110;
 catch_len = 8;
 
 thickness = 4.6;
-gap = 2;
+gap = 1;
 radius = 1.6;
-back = 8;
+back = 8.5;
 
 front = sqrt(keeb_width*keeb_width/2);
 bottom = front;
