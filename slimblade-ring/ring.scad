@@ -6,9 +6,8 @@ pole_d = 3.8;
 pole_h = 5.1;
 inside_d = 55.8;
 outside_d = 73.3;
-outside_thickness = 3.2;
-//outside_thickness = 6;
-inside_thickness = 2.7;
+outside_thickness = 3;
+inside_thickness = 3;
 
 inner_edge_to_pole = 2.35;
 
