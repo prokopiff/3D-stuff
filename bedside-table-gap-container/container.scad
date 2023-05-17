@@ -2,7 +2,7 @@ total_l = 450;
 gap = 69;
 depth = 75;
 lip = 10;
-t = 2;
+t = 2.6;
 charger_w = 72;
 charger_h = 30;
 
@@ -32,7 +32,7 @@ module shell() {
 
 hole_interval = 20;
 hole_h = 2*t;
-hole_w = 1.1;
+hole_w = t;
 holes_gap = depth - hole_h*2 - 10;
   
 module holes() {
@@ -74,7 +74,7 @@ module final() {
 }
 
 module divider() {
-  linear_extrude(1) {
+  linear_extrude(t-0.2) {
     translate([t, t, 0])
       square([gap-2*t, depth]);
     
