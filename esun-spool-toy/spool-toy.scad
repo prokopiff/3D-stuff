@@ -9,8 +9,8 @@ total_h = 57;
 overlap = 6;
 
 outer_wall = 3;
-lip = 15;
-lip_h = 3;
+lip = 13;
+lip_h = 2;
 
 sh_to_edge = 7;
 h2_to_edge = 4;
@@ -33,6 +33,12 @@ difference() {
     cylinder(d = hole_d, h = 100, center = true);  
 
   translate([-(total_d/2-h2_to_edge-hole_d/2), h2_dist/2, 0])
-    cylinder(d = hole_d, h = 100, center = true);  
-}
+    cylinder(d = hole_d, h = 100, center = true);
 
+  translate([-total_d/10, total_d/10, 0])
+    cylinder(d = total_d/1.5, h = 30, center=true);
+
+  translate([total_d/10, total_d/10, 0])
+    cylinder(d = total_d/1.5, h = 30, center=true);
+  
+}
