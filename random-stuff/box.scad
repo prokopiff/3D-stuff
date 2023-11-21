@@ -12,8 +12,6 @@ g = 3;
 ch = 64 - g + 3;
 bottom = 2.5;
 d2 = 12.4 * us;
-
-
 difference() {
   roundedCube([cw, w, ch], 3, true, true);
 
