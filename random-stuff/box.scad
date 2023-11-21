@@ -31,4 +31,6 @@ difference() {
     scale([us, us, us])
     cassette(); 
   }
+  
+  cube([56, d2*7, ch-11], center = true);
 }
