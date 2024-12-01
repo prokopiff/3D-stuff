@@ -11,7 +11,7 @@ holder_w = 13;
 holes_w = 17;
 
 cube_w = 4;
-cube_h = 4;
+cube_h = 6;
 
 conn_w = base_ring_d * 0.75;
 
