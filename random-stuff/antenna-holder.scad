@@ -2,8 +2,8 @@ $fa = 1;
 $fs = 0.15;
 
 
-l = 73;
-w = 21;
+l = 99;
+w = 23;
 
 linear_extrude(l) {
   translate([-0.9, -0.5, 0])
