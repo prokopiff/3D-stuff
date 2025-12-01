@@ -47,13 +47,16 @@ module body() {
 };
 
 difference() {
-  body();
+  union() {
+    body();
+    brace();
+  }
   
-  translate([0, 19.0/2+17, 0])
-  cylinder(h = w2, r = 9);
+  translate([0, 19.0/2+17, -50])
+  cylinder(h = 100, r = 9);
   
-  translate([-102, 22, 0])
-  cylinder(h = w2, r = 9);
+  translate([-102, 22, -50])
+  cylinder(h = 100, r = 9);
   
   hull() {
     linear_extrude(w2*2)
@@ -70,45 +73,43 @@ difference() {
   };
 };
 
-difference() {
-  union() {
-    hull() {
-      translate([220*c+2, 19.0/2+17+645*c+5, 0])
-      cylinder(h = 6, d = 16);
+module brace() {
+  difference() {
+    union() {
+      hull() {
+        translate([220*c+2, 19.0/2+17+645*c+5, -10])
+        cylinder(h = 6, d = 16);
 
+        translate([0, 19.0/2+17, 5])
+        cylinder(h = w2-5, r = 9);
+      };
+
+      hull() {
+        translate([220*c+2, 19.0/2+17+645*c+5, -10])
+        cylinder(h = 6, d = 16);
+
+        translate([-102, 22, 5])
+        cylinder(h = w2-5, r = 9);
+      };
+    };
+    
+    c = 106/970;
+    translate([0, 0, -10]) {
+      // clip_hole
+      
+      translate([220*c+2, 19.0/2+17+645*c+5, 0])
+      cylinder(h = w2, d = 9);
+
+      translate([220*c+2, 19.0/2+17+645*c+5, 6])
+      cylinder(h = 8, d = 18);
+      
+      translate([-102, 22, 0])
+      cylinder(h = w2, r = 9);
+      
       translate([0, 19.0/2+17, 0])
       cylinder(h = w2, r = 9);
     };
-
-    hull() {
-      translate([220*c+2, 19.0/2+17+645*c+5, 0])
-      cylinder(h = 6, d = 16);
-
-      translate([-102, 22, 0])
-      cylinder(h = w2, r = 9);
-    };
   };
-  
-  // clip_hole
-  c = 106/970;
-  translate([220*c+2, 19.0/2+17+645*c+5, 0])
-  cylinder(h = w2, d = 9);
-
-  translate([220*c+2, 19.0/2+17+645*c+5, 6])
-  cylinder(h = 6, d = 18);
-  
-  translate([-102, 22, 0])
-  cylinder(h = w2, r = 9);
-  
-  translate([0, 19.0/2+17, 0])
-  cylinder(h = w2, r = 9);
-  
-};
-
-translate([50, 9, 0])
-difference() {
-  cylinder(h = 8, d = 18);
-  cylinder(h = 8, d = 9);
 };
 
 
