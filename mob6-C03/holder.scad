@@ -1,7 +1,7 @@
 $fa = 1;
 $fs = 0.05;
 
-ANGLE = 40;
+ANGLE = 35;
 
 rotate([180, -ANGLE, 180])
 translate([-9.1, -10.15, -1.7])
@@ -20,10 +20,9 @@ base_box_w = 4.5;
 base_box_h = 1.5;
 
 module left() {
-  module holder() {
+  module holder(w) {
     rotate([90, 0, 0])
-
-    linear_extrude(2) {
+    linear_extrude(w) {
       //front
       translate([-(post_w + gap) / 2, 0, 0])
       hull() {
@@ -43,17 +42,19 @@ module left() {
         circle(d = gap);
       }
 
-      translate([gap/2+0.3+1, -(base_front - base_back + h + 0.3), 0])
+      translate([gap/2+0.3, -(base_front - base_back + h + 0.3), 0])
       square([base_box_w, base_box_h], center = true);
     }
   }
 
   translate([0, -inner_w / 2, 0])
-  holder();
+  color("blue")
+  holder(2.6);
 
+  color("green")
   translate([0, -inner_w / 2 + 4 / 2, 0])
   hull() {
-    holder();
+    holder(2);
   }
 }
 
