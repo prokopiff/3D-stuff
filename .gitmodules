@@ -1,3 +1,6 @@
 [submodule "mcad"]
 	path = mcad
 	url = https://github.com/openscad/MCAD/
+[submodule "BOSL2"]
+	path = BOSL2
+	url = git@github.com:BelfrySCAD/BOSL2.git
